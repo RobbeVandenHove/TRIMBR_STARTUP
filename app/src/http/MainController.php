@@ -1,0 +1,22 @@
+<?php
+
+namespace http;
+use \services\DatabaseConnector;
+
+
+class MainController {
+    protected \Twig\Environment $twig;
+    protected \Doctrine\DBAL\Connection $db;
+
+    public function __construct() {
+        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../../resources/templates');
+        $this->twig = new \Twig\Environment($loader);
+        $this->db = DatabaseConnector::getConnection();
+    }
+
+    public function HomeOverview() {
+        echo $this->twig->render('pages/index.twig', [
+
+        ]);
+    }
+}
