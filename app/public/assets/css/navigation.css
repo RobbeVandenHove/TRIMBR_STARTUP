@@ -2,6 +2,8 @@ body {
     height: 150vh;
 }
 
+/* BIGGER SCREENS */
+
 .top-bar {
     height: 20vh;
     width: 100vw;
@@ -10,7 +12,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
-    line-height: 20vh;
+    transition: all ease .3s;
 }
 
 .top-bar .nav-bar {
@@ -24,6 +26,7 @@ body {
     display: flex;
     flex-direction: row;
     line-height: 19vh;
+    transition: all ease .3s;
 }
 
 .top-bar .nav-bar ul li a {
@@ -35,22 +38,114 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all ease .3s;
     border-bottom: 1px solid transparent;
 }
 
 .top-bar .nav-bar ul li a:hover {
     border-bottom: 2px solid rgb(220, 220, 220);
-    border-radius: 5px;
 }
 
 .top-bar .logo {
-    margin-top: 2vh;
-    margin-left: 10vw;
-    line-height: 20vh;
+    margin-top: 3vh;
+    height: 14vh;
     overflow: hidden;
+    transition: all ease .3s;
 }
 
 .top-bar .logo img {
-    height: 80%;
+    height: 100%;
 }
+
+.top-bar .burger {
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    transform: translateY(-20%);
+    display: none;
+}
+
+.top-bar .burger .line1, .line2, .line3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.active .line1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.active .line2 {
+    opacity: 0;
+}
+
+.active .line3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 20vh;
+    width: 100vw;
+    height: 80vh;
+    background-color: red;
+    border-top: 1px solid rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transform: translateX(-100%);
+    transition: all ease .3s;
+}
+
+.active {
+    display: block;
+    transform: translateX(0%);
+}
+
+.mobile-nav ul {
+    z-index: 10;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mobile-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid transparent;
+    transition: all ease .3s;
+}
+
+.mobile-nav ul li a:hover {
+    border-bottom: 2px solid rgb(220, 220, 220);
+}
+
+/* SMALLER SCREENS */
+
+@media only screen and (max-width: 942px) {
+    .top-bar .nav-bar {
+        display: none;
+    }
+
+    .top-bar .burger {
+        display: block;
+    }
+}
+
+
+
