@@ -21,5 +21,10 @@ $router->get('/', function() {
 
 $router->get('/home', 'MainController@HomeOverview');
 $router->get('/about', 'MainController@AboutOverview');
+$router->get('/shop', 'MainController@ShopOverview');
+$router->get('/jeans', 'MainController@JeansOverview');
+$router->get('/shoes', 'MainController@ShoesOverview');
+$router->get('/contact', 'MainController@ContactOverview');
+$router->get('/page-not-found', 'MainController@PageNotFoundOverview');
 
 $router->run();

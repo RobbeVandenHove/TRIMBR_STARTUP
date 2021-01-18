@@ -135,6 +135,10 @@ body {
     transition: all ease .3s;
 }
 
+.mobile-nav ul li a.selected {
+    border-bottom: 2px solid rgb(220, 220, 220);
+}
+
 .mobile-nav ul li a:hover {
     border-bottom: 2px solid rgb(220, 220, 220);
 }
