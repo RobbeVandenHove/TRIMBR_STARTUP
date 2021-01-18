@@ -1,0 +1,56 @@
+body {
+    height: 150vh;
+}
+
+.top-bar {
+    height: 20vh;
+    width: 100vw;
+    position: fixed;
+    background-color: red;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    line-height: 20vh;
+}
+
+.top-bar .nav-bar {
+    color: white;
+}
+
+.top-bar .nav-bar ul {
+    margin-right: 10vw;
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    line-height: 19vh;
+}
+
+.top-bar .nav-bar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all ease .3s;
+    border-bottom: 1px solid transparent;
+}
+
+.top-bar .nav-bar ul li a:hover {
+    border-bottom: 2px solid rgb(220, 220, 220);
+    border-radius: 5px;
+}
+
+.top-bar .logo {
+    margin-top: 2vh;
+    margin-left: 10vw;
+    line-height: 20vh;
+    overflow: hidden;
+}
+
+.top-bar .logo img {
+    height: 80%;
+}
