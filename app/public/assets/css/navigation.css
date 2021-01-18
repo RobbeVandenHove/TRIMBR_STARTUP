@@ -41,6 +41,10 @@ body {
     border-bottom: 1px solid transparent;
 }
 
+.top-bar .nav-bar ul li a.selected {
+    border-bottom: 2px solid rgb(220, 220, 220);
+}
+
 .top-bar .nav-bar ul li a:hover {
     border-bottom: 2px solid rgb(220, 220, 220);
 }

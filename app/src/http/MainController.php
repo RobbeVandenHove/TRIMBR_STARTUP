@@ -16,7 +16,13 @@ class MainController {
 
     public function HomeOverview() {
         echo $this->twig->render('pages/index.twig', [
+            'homePage' => 'active'
+        ]);
+    }
 
+    public function AboutOverview() {
+        echo $this->twig->render('pages/about.twig', [
+            'aboutPage' => 'active'
         ]);
     }
 }
