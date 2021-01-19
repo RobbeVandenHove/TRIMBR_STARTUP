@@ -6,20 +6,20 @@
 <body>
 {% include 'layout/parts/navigation.twig' %}
 
-<section class="error">
-    <div class="container">
-        <div class="left">
-            <img src="/../../assets/img/icons/error-icon.jpeg" alt="error">
+    <section class="error">
+        <div class="container">
+            <div class="left">
+                <img src="/../../assets/img/icons/error-icon.jpeg" alt="error">
+            </div>
+            <div class="right-top">
+                <h1>404</h1>
+                <h2>page not found</h2>
+            </div>
+            <div class="right-bottom">
+                <a href="/home">back to home</a>
+            </div>
         </div>
-        <div class="right-top">
-            <h1>404</h1>
-            <h2>page not found</h2>
-        </div>
-        <div class="right-bottom">
-            <a href="/home">back to home</a>
-        </div>
-    </div>
-</section>
+    </section>
 
 {% include 'layout/parts/footer.twig' %}
 </body>
