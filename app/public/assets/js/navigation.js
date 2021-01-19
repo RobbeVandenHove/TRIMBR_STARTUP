@@ -4,6 +4,7 @@ var topBar = document.querySelector('.top-bar');
 var ul = document.querySelector('.top-bar .nav-bar ul');
 var img = document.querySelector('.top-bar .logo');
 var navBarMobile = document.querySelector('.mobile-nav');
+var toTop = document.querySelector('.to-top i');
 
 function doSomething(scroll_pos) {
     if (scroll_pos > 0) {
@@ -13,6 +14,8 @@ function doSomething(scroll_pos) {
         img.style.margin = "0vh";
         navBarMobile.style.height = "90vh";
         navBarMobile.style.top = "10vh";
+        toTop.style.opacity = '1';
+        toTop.style.pointerEvents = 'all';
     }
     else if (scroll_pos === 0) {
         topBar.style.height = "20vh";
@@ -21,6 +24,8 @@ function doSomething(scroll_pos) {
         img.style.margin = "3vh";
         navBarMobile.style.height = "80vh";
         navBarMobile.style.top = "20vh";
+        toTop.style.opacity = '0';
+        toTop.style.pointerEvents = 'none';
     }
 }
 
@@ -35,6 +40,11 @@ document.addEventListener('scroll', function(e) {
 
         ticking = true;
     }
+});
+
+toTop.addEventListener('click', function (e) {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 });
 
 function navOpen(x) {

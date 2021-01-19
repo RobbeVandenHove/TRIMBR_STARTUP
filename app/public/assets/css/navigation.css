@@ -141,6 +141,30 @@
     border-bottom: 2px solid rgb(220, 220, 220);
 }
 
+.to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 7;
+}
+
+.to-top i {
+    opacity: 0;
+    pointer-events: none;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: red;
+    padding: 10px 10px;
+    border-radius: 50%;
+    color: white;
+    transition: all ease .3s;
+}
+
+.to-top i:hover {
+    background-color: white;
+    color: red;
+}
+
 /* SMALLER SCREENS */
 
 @media only screen and (max-width: 942px) {
