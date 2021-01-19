@@ -1,8 +1,25 @@
 
 {% include 'layout/parts/header.twig' %}
-
+<head>
+    <link rel="stylesheet" href="/../../assets/css/error.css">
+</head>
 <body>
 {% include 'layout/parts/navigation.twig' %}
+
+<section class="error">
+    <div class="container">
+        <div class="left">
+            <img src="/../../assets/img/icons/error-icon.jpeg" alt="error">
+        </div>
+        <div class="right-top">
+            <h1>404</h1>
+            <h2>page not found</h2>
+        </div>
+        <div class="right-bottom">
+            <a href="/home">back to home</a>
+        </div>
+    </div>
+</section>
 
 {% include 'layout/parts/footer.twig' %}
 </body>
