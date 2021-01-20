@@ -1,0 +1,122 @@
+.outer-box {
+    overflow: hidden;
+    width: 380px;
+    height: 480px;
+    background-color: white;
+    position: absolute;
+    top: 65vh;
+    left: 50vw;
+    font-family: 'Poppins', sans-serif;
+    transform: translate(-50%, -65%);
+    border-radius: 2px;
+    box-shadow: 5px 5px 20px 2px rgba(255,0,0, 0.4);
+}
+
+.button-box {
+    position: relative;
+    width: 220px;
+    margin: 35px auto;
+    box-shadow: 0 0 20px 1px rgba(255,0,0, 0.8);
+    border-radius: 30px;
+}
+
+.button-box button:nth-child(2) {
+    color: white;
+}
+
+.button-box button:nth-child(3) {
+    color: rgb(255, 0, 0);
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn-state {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: rgb(255, 0, 0);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.input-form {
+    top: 50%;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgb(255, 0, 0);
+    outline: none;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+}
+
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    background: rgb(255, 0, 0);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.error {
+    width: 100%;
+    padding: 20px 20px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 13px;
+    font-family: Arial;
+    color: red;
+}
+
+#cancel {
+    text-align: center;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 700;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+#login {
+    transition: .5s;
+    position: relative;
+    left: 50px;
+}
+
+#register {
+    transition: .5s;
+    position: relative;
+    left: 450px;
+}

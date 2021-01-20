@@ -1,0 +1,41 @@
+
+{% include 'layout/parts/header.twig' %}
+<head>
+    <link rel="stylesheet" href="/../../assets/css/login.css">
+</head>
+<body>
+{% include 'layout/parts/navigation.twig' %}
+<div class="outer-box">
+    <div class="button-box">
+        <div id="btn-state"></div>
+        <button type="button" class="toggle-btn" onclick="login()">Log in</button>
+        <button type="button" class="toggle-btn" onclick="register()">Register</button>
+    </div>
+    <div id="login" class="input">
+        <form method="post" action="/login" role="form" class="input-form">
+            <input type="text" name="userId" class="input-field" placeholder="Gebruikersnaam" autocomplete="off" required>
+            <input type="password" name="password" class="input-field" placeholder="Paswoord" autocomplete="off" required>
+            <button type="submit" class="submit-btn" name="login">Login</button>
+            <a href="/home" id="cancel" class="submit-btn">Annuleer</a>
+            <div class="error">
+                <p></p>
+            </div>
+        </form>
+    </div>
+    <div id="register" class="input">
+        <form method="post" action="/login/register" role="form" class="input-form">
+            <input type="text" name="userId" class="input-field" placeholder="Gebruikersnaam" autocomplete="off" required>
+            <input type="email" name="email" class="input-field" placeholder="Email" autocomplete="off" required>
+            <input type="password" name="password" class="input-field" placeholder="Paswoord" autocomplete="off" required>
+            <input type="password" name="confPassword" class="input-field" placeholder="Bevestig paswoord" autocomplete="off" required>
+            <button type="submit" class="submit-btn" name="register">Registreer</button>
+            <a href="/home" id="cancel" class="submit-btn">Annuleer</a>
+            <div class="error">
+                <p></p>
+            </div>
+        </form>
+    </div>
+</div>
+{% include 'layout/parts/footer.twig' %}
+</body>
+<script></script>

@@ -25,6 +25,7 @@ $router->get('/shop', 'MainController@ShopOverview');
 $router->get('/jeans', 'MainController@JeansOverview');
 $router->get('/shoes', 'MainController@ShoesOverview');
 $router->get('/contact', 'MainController@ContactOverview');
+$router->get('/login', 'MainController@LoginOverview');
 $router->get('/page-not-found', 'MainController@PageNotFoundOverview');
 
 $router->run();

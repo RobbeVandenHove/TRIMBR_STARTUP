@@ -50,6 +50,12 @@ class MainController {
         ]);
     }
 
+    public function LoginOverview() {
+        echo $this->twig->render('pages/login.twig', [
+            'loginPage' => 'active'
+        ]);
+    }
+
     public function PageNotFoundOverview() {
         echo $this->twig->render('pages/pageNotFound.twig', [
 
