@@ -34,12 +34,18 @@ $router->get('/shoes', 'MainController@ShoesOverview');
 $router->get('/contact', 'MainController@ContactOverview');
 $router->get('/login', 'MainController@LoginOverview');
 $router->get('/page-not-found', 'MainController@PageNotFoundOverview');
-$router->get('/admin', 'AdminController@AdminLoginOverview');
 
 $router->post('/login/register', 'AuthController@RegisterNewPerson');
 $router->post('/login', 'AuthController@LoginPerson');
 $router->get('/logout', 'AuthController@LogoutPerson');
 
+$router->get('/admin', 'AdminController@AdminLoginOverview');
 $router->post('/admin', 'AdminController@AdminLogin');
+$router->get('/admin/workspace', 'AdminController@WorkspaceOverview');
+$router->get('/admin/workspace/add-clothing', 'AdminController@AddClothingOverview');
+$router->get('/admin/workspace/edit-clothing', 'AdminController@EditClothingOverview');
+$router->get('/admin/workspace/delete-clothing', 'AdminController@DeleteClothingOverview');
+$router->get('/admin/workspace/find-order', 'AdminController@SearchOrderOverview');
+$router->get('/admin/workspace/edit-order', 'AdminController@EditOrderOverview');
 
 $router->run();

@@ -31,15 +31,41 @@ class AdminController {
         else {
             $user = $stmt->fetchAssociative();
             if (password_verify($password, $user['Password'])) {
-                echo $this->twig->render('pages/workspace.twig', [
-
-                ]);
+                $_SESSION['admin'] = $user;
+                header('Location: /admin/workspace');
+                exit();
             }
             else $errors[1] = 'Wrong password.';
         }
         if (count($errors) > 0) {
             echo $this->twig->render('pages/admin.twig', [
                 'uname' => $uname
+            ]);
+        }
+    }
+
+    public function WorkspaceOverview() {
+        if (!isset($_SESSION['admin'])) {
+            echo $this->twig->render('pages/admin.twig', [
+
+            ]);
+        }
+        else {
+            echo $this->twig->render('pages/workspace.twig', [
+
+            ]);
+        }
+    }
+
+    public function AddClothingOverview() {
+        if (!isset($_SESSION['admin'])) {
+            echo $this->twig->render('pages/admin.twig', [
+
+            ]);
+        }
+        else {
+            echo $this->twig->render('pages/add-clothing.twig', [
+
             ]);
         }
     }
