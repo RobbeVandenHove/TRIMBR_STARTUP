@@ -46,7 +46,7 @@ class AuthController {
                 if ($stmt) header('Location: /login');
             }
             else {
-                echo $this->twig->render('pages/login.twig', [
+                echo $this->twig->render('pages/costumer-pages/login.twig', [
                     'uname' => $userName,
                     'email' => $email,
                     'pas1' => $password,
@@ -82,7 +82,7 @@ class AuthController {
                 else $errors[1] = 'Wrong password.';
             }
             if (count($errors) > 0) {
-                echo $this->twig->render('pages/login.twig', [
+                echo $this->twig->render('pages/costumer-pages/login.twig', [
                     'unameLog' => $userName,
                     'pas1Log' => $password,
                     'errors' => $errors,

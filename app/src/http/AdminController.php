@@ -15,7 +15,7 @@ class AdminController {
     }
 
     public function AdminLoginOverview() {
-        echo $this->twig->render('pages/admin.twig', [
+        echo $this->twig->render('pages/admin-pages/admin.twig', [
 
         ]);
     }
@@ -38,7 +38,7 @@ class AdminController {
             else $errors[1] = 'Wrong password.';
         }
         if (count($errors) > 0) {
-            echo $this->twig->render('pages/admin.twig', [
+            echo $this->twig->render('pages/admin-pages/admin.twig', [
                 'uname' => $uname
             ]);
         }
@@ -46,12 +46,12 @@ class AdminController {
 
     public function WorkspaceOverview() {
         if (!isset($_SESSION['admin'])) {
-            echo $this->twig->render('pages/admin.twig', [
+            echo $this->twig->render('pages/admin-pages/admin.twig', [
 
             ]);
         }
         else {
-            echo $this->twig->render('pages/workspace.twig', [
+            echo $this->twig->render('pages/admin-pages/workspace.twig', [
 
             ]);
         }
@@ -59,12 +59,12 @@ class AdminController {
 
     public function AddClothingOverview() {
         if (!isset($_SESSION['admin'])) {
-            echo $this->twig->render('pages/admin.twig', [
+            echo $this->twig->render('pages/admin-pages/admin.twig', [
 
             ]);
         }
         else {
-            echo $this->twig->render('pages/add-clothing.twig', [
+            echo $this->twig->render('pages/admin-pages/add-clothing.twig', [
 
             ]);
         }

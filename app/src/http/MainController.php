@@ -18,55 +18,55 @@ class MainController {
     }
 
     public function HomeOverview() {
-        echo $this->twig->render('pages/index.twig', [
+        echo $this->twig->render('pages/costumer-pages/index.twig', [
             'homePage' => 'active',
             'user' => $_SESSION['logged']
         ]);
     }
 
     public function AboutOverview() {
-        echo $this->twig->render('pages/about.twig', [
+        echo $this->twig->render('pages/costumer-pages/about.twig', [
             'aboutPage' => 'active',
             'user' => $_SESSION['logged']
         ]);
     }
 
     public function ShopOverview() {
-        echo $this->twig->render('pages/shop.twig', [
+        echo $this->twig->render('pages/costumer-pages/shop.twig', [
             'shopPage' => 'active',
             'user' => $_SESSION['logged']
         ]);
     }
 
     public function JeansOverview() {
-        echo $this->twig->render('pages/jeans.twig', [
+        echo $this->twig->render('pages/costumer-pages/jeans.twig', [
             'jeansPage' => 'active',
             'user' => $_SESSION['logged']
         ]);
     }
 
     public function ShoesOverview() {
-        echo $this->twig->render('pages/shoes.twig', [
+        echo $this->twig->render('pages/costumer-pages/shoes.twig', [
             'shoesPage' => 'active',
             'user' => $_SESSION['logged']
         ]);
     }
 
     public function ContactOverview() {
-        echo $this->twig->render('pages/contact.twig', [
+        echo $this->twig->render('pages/costumer-pages/contact.twig', [
             'contactPage' => 'active',
             'user' => $_SESSION['logged']
         ]);
     }
 
     public function LoginOverview() {
-        echo $this->twig->render('pages/login.twig', [
+        echo $this->twig->render('pages/costumer-pages/login.twig', [
 
         ]);
     }
 
     public function PageNotFoundOverview() {
-        echo $this->twig->render('pages/pageNotFound.twig', [
+        echo $this->twig->render('pages/costumer-pages/pageNotFound.twig', [
             'user' => $_SESSION['logged']
         ]);
     }
