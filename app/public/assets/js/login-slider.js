@@ -1,6 +1,7 @@
 var x = document.getElementById("login");
 var y = document.getElementById("register");
 var z = document.getElementById("btn-state");
+var a = document.querySelector(".outer-box");
 
 var log = document.querySelector(".button-box button:nth-child(2)");
 var reg = document.querySelector(".button-box button:nth-child(3)");
@@ -11,6 +12,7 @@ function register() {
     z.style.left = "110px";
     log.style.color = "rgb(255, 0, 0)";
     reg.style.color = "white";
+    a.style.overflowY = "scroll";
 }
 
 function login() {
@@ -19,4 +21,5 @@ function login() {
     z.style.left = "0";
     log.style.color = "white";
     reg.style.color = "rgb(255, 0, 0)";
+    a.style.overflowY = "hidden";
 }

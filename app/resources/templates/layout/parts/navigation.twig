@@ -14,7 +14,7 @@
             <li><a class="{{ shoesPage == 'active' ? 'selected' : '' }}" href="/shoes">Shoes</a></li>
             <li><a class="{{ contactPage == 'active' ? 'selected' : '' }}" href="/contact">Contact</a></li>
             {% if user %}
-                <li><a href="/account">{{ user['UserName'] }}</a></li>
+                <li><a href="/account">Account</a></li>
                 <li><a href="/logout">Logout</a></li>
             {% else %}
                 <li><a class="{{ contactPage == 'active' ? 'selected' : '' }}" href="/login">Login</a></li>
@@ -41,7 +41,8 @@
         <li><a class="{{ shoesPage == 'active' ? 'selected' : '' }}" href="/shoes">Shoes</a></li>
         <li><a class="{{ contactPage == 'active' ? 'selected' : '' }}" href="/contact">Contact</a></li>
         {% if user %}
-            <li><a href="/account">{{ user['UserName'] }}</a></li>
+            <li><a href="/account">Account</a></li>
+            <li><a href="/logout">Logout</a></li>
         {% else %}
             <li><a class="{{ contactPage == 'active' ? 'selected' : '' }}" href="/login">Login</a></li>
         {% endif %}

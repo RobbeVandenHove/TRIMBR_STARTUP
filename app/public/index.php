@@ -47,5 +47,7 @@ $router->get('/admin/workspace/edit-clothing', 'AdminController@EditClothingOver
 $router->get('/admin/workspace/delete-clothing', 'AdminController@DeleteClothingOverview');
 $router->get('/admin/workspace/find-order', 'AdminController@SearchOrderOverview');
 $router->get('/admin/workspace/edit-order', 'AdminController@EditOrderOverview');
+$router->get('/admin/workspace/add-personel', 'AdminController@AddPersonelOverview');
+$router->post('/admin/workspace/add-personel', 'AdminController@AddPersonel');
 
 $router->run();

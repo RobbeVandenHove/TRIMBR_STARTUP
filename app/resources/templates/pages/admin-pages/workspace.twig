@@ -5,12 +5,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>Kies een taak</h1>
-        <a href="/admin/workspace/add-clothing">Add clothing</a>
-        <a href="/admin/workspace/edit-clothing">Edit clothing</a>
-        <a href="/admin/workspace/delete-clothing">Delete clothing</a>
+        <h1>Tasks</h1>
+        <a href="/admin/workspace/add-clothing"
+                {{ user.Role_Id != 3 ? 'style="pointer-events: none; background: gray; border: 1px solid gray;"' : '' }}>Add clothing</a>
+        <a href="/admin/workspace/edit-clothing"
+                {{ user.Role_Id != 3 ? 'style="pointer-events: none; background: gray; border: 1px solid gray;"' : '' }}>Edit clothing</a>
+        <a href="/admin/workspace/delete-clothing"
+                {{ user.Role_Id != 3 ? 'style="pointer-events: none; background: gray; border: 1px solid gray;"' : '' }}>Delete clothing</a>
         <a href="/admin/workspace/find-order">Search order</a>
-        <a href="/admin/workspace/edit-order">Edit order</a>
+        <a href="/admin/workspace/edit-order"
+                {{ user.Role_Id != 3 ? 'style="pointer-events: none; background: gray; border: 1px solid gray;"' : '' }}>Edit order</a>
+        <a href="/admin/workspace/add-personel"
+                {{ user.Role_Id != 3 ? 'style="pointer-events: none; background: gray; border: 1px solid gray;"' : '' }}>Add personel</a>
     </div>
 </body>
 </html>

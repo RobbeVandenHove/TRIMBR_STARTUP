@@ -22,12 +22,13 @@ class AdminController {
 
     public function AdminLogin() {
         $errors = [];
-        $uname = isset($_POST['admin-uname']) ? trim($_POST['admin-uname']) : '';
+        $email = isset($_POST['admin-email']) ? trim($_POST['admin-email']) : '';
         $password = isset($_POST['admin-password']) ? trim($_POST['admin-password']) : '';
-        $stmt = $this->db->prepare('SELECT * FROM Users WHERE UserName = :uname AND UserRole = \'admin\'');
-        $stmt->bindValue(':uname', $uname);
+        $stmt = $this->db->prepare('SELECT * FROM users LEFT JOIN userrole ON users.Id = userrole.Users_Id
+                                        WHERE userrole.Role_Id > 1 AND users.Email = :email');
+        $stmt->bindValue(':email', $email);
         $stmt->execute();
-        if ($stmt->rowCount() != 1) $errors[0] = 'You are not recognised in our system.';
+        if ($stmt->rowCount() != 1) die('You are not recognised in our system.');
         else {
             $user = $stmt->fetchAssociative();
             if (password_verify($password, $user['Password'])) {
@@ -35,12 +36,7 @@ class AdminController {
                 header('Location: /admin/workspace');
                 exit();
             }
-            else $errors[1] = 'Wrong password.';
-        }
-        if (count($errors) > 0) {
-            echo $this->twig->render('pages/admin-pages/admin.twig', [
-                'uname' => $uname
-            ]);
+            else die('Wrong password.');
         }
     }
 
@@ -52,7 +48,7 @@ class AdminController {
         }
         else {
             echo $this->twig->render('pages/admin-pages/workspace.twig', [
-
+                'user' => $_SESSION['admin']
             ]);
         }
     }
@@ -67,6 +63,69 @@ class AdminController {
             echo $this->twig->render('pages/admin-pages/add-clothing.twig', [
 
             ]);
+        }
+    }
+
+    public function EditClothingOverview() {
+
+    }
+
+    public function DeleteClothingOverview() {
+
+    }
+
+    public function SearchOrderOverview() {
+
+    }
+
+    public function EditOrderOverview() {
+
+    }
+
+    public function AddPersonelOverview() {
+        echo $this->twig->render('pages/admin-pages/add-personel.twig', [
+
+        ]);
+    }
+
+    public function AddPersonel() {
+        if ($_SESSION['admin']['Role_Id'] != 3) die('You have no permittion to add personel.');
+        else {
+            $errors = [];
+            $fname = isset($_POST['fname']) ? trim($_POST['fname']) : '';
+            $lname = isset($_POST['lname']) ? trim($_POST['lname']) : '';
+            $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+            $city = isset($_POST['city']) ? trim($_POST['city']) : '';
+            $street = isset($_POST['street']) ? $_POST['street'] : '';
+            $hnum = isset($_POST['houseNum']) ? $_POST['houseNum'] : '';
+            $postal = isset($_POST['postal']) ? $_POST['postal'] : '';
+            $role = isset($_POST['role']) ? $_POST['role'] : '';
+            $password = isset($_POST['pas1']) ? trim($_POST['pas1']) : '';
+            $conf = isset($_POST['pas2']) ? trim($_POST['pas2']) : '';
+            if ($password != $conf) die('Passwords do not match.');
+            $stmt = $this->db->prepare('SELECT COUNT(email) AS mail FROM users WHERE Email = :email;');
+            $stmt->bindValue(':email', $email);
+            $stmt->execute();
+            $rowCount = $stmt->fetchAssociative();
+            if ($rowCount['mail'] > 0) die('Email already in use.');
+            if (count($errors) == 0) {
+                $crypPassword = password_hash($password, PASSWORD_DEFAULT);
+                $stmt = $this->db->prepare('INSERT INTO users (FirstName, LastName, Email, City, Street, HouseNumber, PostalCode, Password) 
+                                                VALUES (:fname, :lname, :email, :city, :street, :houseNumber, :postalCode, :password)');
+                $stmt->bindValue(':fname', $fname);
+                $stmt->bindValue(':lname', $lname);
+                $stmt->bindValue(':email', $email);
+                $stmt->bindValue(':city', $city);
+                $stmt->bindValue(':street', $street);
+                $stmt->bindValue(':houseNumber', $hnum);
+                $stmt->bindValue(':postalCode', $postal);
+                $stmt->bindValue(':password', $crypPassword);
+                $stmt->execute();
+                $stmt = $this->db->prepare('INSERT INTO userrole (Role_Id, Users_Id) VALUES (:role, :id)');
+                $stmt->bindValue(':role', (int)$role);
+                $stmt->bindValue(':id', (int)$this->db->lastInsertId());
+                $stmt->execute();
+            }
         }
     }
 }

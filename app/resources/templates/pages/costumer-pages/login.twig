@@ -13,54 +13,82 @@
     </div>
     <div id="login" class="input">
         <form method="post" action="/login" role="form" class="input-form">
-            <input type="text" name="userId" class="input-field" placeholder="Gebruikersnaam" value="{{ unameLog ? unameLog : "" }}" autocomplete="off" required>
-            <input type="password" name="password" class="input-field" placeholder="Paswoord" value="{{ pas1Log ? pas1Log : "" }}" autocomplete="off" required>
+            <input type="text" name="email" class="input-field" placeholder="Email" value="{{ email ? email : "" }}" autocomplete="off" required>
+            <input type="password" name="password" class="input-field" placeholder="Paswoord" autocomplete="off" required>
             <button type="submit" class="submit-btn" name="login">Login</button>
             <a href="/home" id="cancel" class="submit-btn">Annuleer</a>
             <div class="error">
-                <p></p>
+                {% if errors %}
+                {% if source == 'register' %}
+                    <script type="text/javascript">
+                        var x = document.getElementById("login");
+                        var y = document.getElementById("register");
+                        var z = document.getElementById("btn-state");
+
+                        var log = document.querySelector(".button-box button:nth-child(2)");
+                        var reg = document.querySelector(".button-box button:nth-child(3)");
+
+                        x.style.left = "-400px";
+                        y.style.left = "50px";
+                        z.style.left = "110px";
+                        log.style.color = "rgb(255, 0, 0)";
+                        reg.style.color = "white";
+                    </script>
+                {% endif %}
+                    <div class="error-box">
+                        <ul>
+                            {% for error in errors  %}
+                                <l>{{ error }}</l>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
             </div>
         </form>
     </div>
     <div id="register" class="input">
         <form method="post" action="/login/register" role="form" class="input-form">
-            <input type="text" name="userId" class="input-field" placeholder="Gebruikersnaam" autocomplete="off" value="{{ uname ? uname : "" }}" required>
-            <input type="email" name="email" class="input-field" placeholder="Email" autocomplete="off" value="{{ email ? email : "" }}" required>
-            <input type="password" name="password" class="input-field" placeholder="Paswoord" value="{{ pas1 ? pas1 : "" }}" autocomplete="off" required>
-            <input type="password" name="confPassword" class="input-field" placeholder="Bevestig paswoord" value="{{ pas2 ? pas2 : "" }}" autocomplete="off" required>
+            <input type="text" name="fname" class="input-field" placeholder="First name" value="{{ fname ? fname : "" }}" required>
+            <input type="text" name="lname" class="input-field" placeholder="Last name" value="{{ lname ? lname : "" }}" required>
+            <input type="email" name="email" class="input-field" placeholder="Email" value="{{ email ? email : "" }}" required>
+            <input type="text" name="city" class="input-field" placeholder="City" value="{{ city ? city : "" }}" required>
+            <input type="text" name="street" class="input-field" placeholder="Street" value="{{ street ? street : "" }}" required>
+            <input type="text" name="houseNum" class="input-field" placeholder="House number" value="{{ hnum ? hnum : "" }}" required>
+            <input type="text" name="postal" class="input-field" placeholder="Postal number" value="{{ post ? post : "" }}" required>
+            <input type="password" name="password" class="input-field" placeholder="Paswoord" autocomplete="off" required>
+            <input type="password" name="confPassword" class="input-field" placeholder="Bevestig paswoord" autocomplete="off" required>
             <button type="submit" class="submit-btn" name="register">Registreer</button>
             <a href="/home" id="cancel" class="submit-btn">Annuleer</a>
             <div class="error">
-                <p></p>
+                {% if errors %}
+                {% if source == 'register' %}
+                    <script type="text/javascript">
+                        var x = document.getElementById("login");
+                        var y = document.getElementById("register");
+                        var z = document.getElementById("btn-state");
+
+                        var log = document.querySelector(".button-box button:nth-child(2)");
+                        var reg = document.querySelector(".button-box button:nth-child(3)");
+
+                        x.style.left = "-400px";
+                        y.style.left = "50px";
+                        z.style.left = "110px";
+                        log.style.color = "rgb(255, 0, 0)";
+                        reg.style.color = "white";
+                    </script>
+                {% endif %}
+                    <div class="error-box">
+                        <ul>
+                            {% for error in errors  %}
+                                <l>{{ error }}</l>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
             </div>
         </form>
     </div>
 </div>
-{% if errors %}
-    {% if source == 'register' %}
-        <script type="text/javascript">
-            var x = document.getElementById("login");
-            var y = document.getElementById("register");
-            var z = document.getElementById("btn-state");
-
-            var log = document.querySelector(".button-box button:nth-child(2)");
-            var reg = document.querySelector(".button-box button:nth-child(3)");
-
-            x.style.left = "-400px";
-            y.style.left = "50px";
-            z.style.left = "110px";
-            log.style.color = "rgb(255, 0, 0)";
-            reg.style.color = "white";
-        </script>
-    {% endif %}
-    <div class="error-box">
-        <ul>
-            {% for error in errors  %}
-                <l>{{ error }}</l>
-            {% endfor %}
-        </ul>
-    </div>
-{% endif %}
 
 {% include 'layout/parts/footer.twig' %}
 </body>
