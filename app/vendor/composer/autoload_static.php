@@ -68,6 +68,7 @@ class ComposerStaticInit501fd3fef336129d9890d2d091624e7c
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'http\\AdminController' => __DIR__ . '/../..' . '/src/http/AdminController.php',
         'http\\AuthController' => __DIR__ . '/../..' . '/src/http/AuthController.php',
         'http\\MainController' => __DIR__ . '/../..' . '/src/http/MainController.php',
         'services\\DatabaseConnector' => __DIR__ . '/../..' . '/src/services/DatabaseConnector.php',

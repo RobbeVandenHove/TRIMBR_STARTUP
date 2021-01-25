@@ -40,4 +40,6 @@ $router->post('/login/register', 'AuthController@RegisterNewPerson');
 $router->post('/login', 'AuthController@LoginPerson');
 $router->get('/logout', 'AuthController@LogoutPerson');
 
+$router->post('/admin', 'AdminController@AdminLogin');
+
 $router->run();
