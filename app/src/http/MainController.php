@@ -65,6 +65,12 @@ class MainController {
         ]);
     }
 
+    public function AccountOverview() {
+        echo $this->twig->render('pages/costumer-pages/account.twig', [
+
+        ]);
+    }
+
     public function PageNotFoundOverview() {
         echo $this->twig->render('pages/costumer-pages/pageNotFound.twig', [
             'user' => $_SESSION['logged']

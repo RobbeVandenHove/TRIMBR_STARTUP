@@ -33,6 +33,7 @@ $router->get('/jeans', 'MainController@JeansOverview');
 $router->get('/shoes', 'MainController@ShoesOverview');
 $router->get('/contact', 'MainController@ContactOverview');
 $router->get('/login', 'MainController@LoginOverview');
+$router->get('/account', 'MainController@AccountOverview');
 $router->get('/page-not-found', 'MainController@PageNotFoundOverview');
 
 $router->post('/login/register', 'AuthController@RegisterNewPerson');
